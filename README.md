@@ -44,7 +44,7 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
     ```bash
     sudo pro attach <your_token>  
     ```
->While some may view these security perks as abstract, why not take advantage of free Pro features?
+>**While some may view these security perks as abstract, why not take advantage of free Pro features?**
 
 ## Drivers — Ubuntu Handles It All
 - One of Ubuntu’s strengths is automatic driver management. After installation, run:
@@ -57,3 +57,9 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 
     ![Example notification"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/driver.png)
     </details>
+
+## GNOME Extensions — Bring Your Desktop to Life
+
+Out of the box, GNOME feels bland. But with extensions.gnome.org, it becomes a canvas for creativity. Here’s my setup:
+
+![setup](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/desk1.png)
