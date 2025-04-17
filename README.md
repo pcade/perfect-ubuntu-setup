@@ -60,8 +60,9 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 ## GNOME Extensions — Bring Your Desktop to Life
 
 Out of the box, GNOME feels bland. But with [extensions.gnome.org](extensions.gnome.org), it becomes a canvas for creativity. Here’s my setup:
-
-  ![setup](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/desk1.png)
+<p align="center">
+  <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/desk1.png" alt="setup">
+</p>
 
 #### Required Packages
 
