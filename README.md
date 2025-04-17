@@ -1,5 +1,5 @@
 # My ideal Ubuntu: customizing the system to suit my needs.
----
+
 Customizing Ubuntu for Personal Tasks — Crafting Your Own Comfort Zone
 In this article, I’ll share my experience tailoring Ubuntu to fit my workflow. These tweaks might save you time and spare you from unnecessary trial and error. All examples were tested on Ubuntu 22.04 LTS, though many ideas apply to other versions too.
 
