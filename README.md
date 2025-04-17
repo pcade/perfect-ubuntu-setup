@@ -111,7 +111,7 @@ chsh -s $(which zsh)
 #### Aliases for Efficiency
 - An alias is a convenient shortcut for frequently used commands that helps speed up work in the terminal. To set up an alias in Zsh, open the configuration file ~/.zshrc and ~/.bashrc in Bash, respectively. Below is my example of alias configuration that may be useful:
 - <details>
-    <summary><b>Alias example:</b></summary>
+    <summary><b>🔍 Alias example: ▼</b></summary>
 
     ```
     # Shortened command for ls -la
@@ -157,10 +157,19 @@ chsh -s $(which zsh)
   </details>
 
 ## Recommended Packages
-#### Apt-fast — Faster Downloads
-- Replace apt with a multithreaded alternative:
-  ```bash<details>
-  <summary><b>Extensions:</b></summary>
+
+<details>
+  <summary><b>🔍 Apt-fast — Faster Downloads ▼</b></summary>
+
+  - Replace `apt` with a multithreaded alternative:
+    ```bash
+    sudo add-apt-repository ppa:apt-fast/stable
+    sudo apt update && sudo apt install apt-fast
+    ```
+</details>
+
+<details>
+  <summary><b>🔍 Terminator — Advanced Terminal ▼</b></summary>
 
 <p align="center">
   <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/term.png" alt="Terminator">
@@ -177,33 +186,44 @@ chsh -s $(which zsh)
   sudo apt-get remove gnome-terminal
   sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
   ```
-
-
-<details>
-  <summary><b>🔍 Показать расширения (кликните!)</b></summary>
-  
-![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
 </details>
 
-
 <details>
-  <summary style="color: #ff6600; font-weight: bold; background: #f5f5f5; padding: 5px; border-radius: 5px;">
-    📁 Показать расширения
-  </summary>
-  
-![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
+  <summary><b>🔍 Nemo File Manager ▼</b></summary>
+
+<p align="center">
+  <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/nemo.png" alt="Nemo">
+</p>
+
+- Workspace separation - Nemo allows you to organize the workspace similarly to Total Commander, making navigation more convenient.
+- Copying paths directly from the address bar: This simplifies working with files and folders.
+
+    ```bash
+    sudo apt-get upgrade --fix-missing --no-install-recommends nemo
+    ```
+- To make Nemo the default file manager, you can follow these steps:
+    ```bash
+    xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+    gsettings set org.gnome.desktop.background show-desktop-icons false
+    gsettings set org.nemo.desktop show-desktop-icons true
+    ```
 </details>
 
-
 <details>
-  <summary><b>🖼️ ПОСМОТРЕТЬ ИЗОБРАЖЕНИЕ ▼</b></summary>
-  
-![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
-</details>
+  <summary><b>🔍 Kate — Lightweight Text IDE ▼</b></summary>
 
+<p align="center">
+  <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/kate.png" alt="Kate">
+</p>
 
-<details>
-  <summary><b style="color: white; background: #0366d6; padding: 3px 8px; border-radius: 4px;">✨ Показать скриншот</b></summary>
-  
-![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
+- Syntax highlighting and line numbering;
+- Built-in integration with Git.
+
+    ```bash
+    sudo apt-get upgrade --fix-missing --no-install-recommends kate
+    ```
+- After installation, you can set Kate as the default text editor by executing:
+    ```bash
+    xdg-mime default kate.desktop text/plain
+    ```
 </details>
