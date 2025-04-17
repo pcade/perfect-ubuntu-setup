@@ -155,12 +155,11 @@ chsh -s $(which zsh)
 ## Recommended Packages
 #### Apt-fast — Faster Downloads
 - Replace apt with a multithreaded alternative:
-  ```bash
-  sudo add-apt-repository ppa:apt-fast/stable
-  sudo apt update && sudo apt install apt-fast
-  ```
-#### Terminator — Advanced Terminal
+  ```bash<details>
+  <summary><b>Extensions:</b></summary>
 
+![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
+</details>
 <p align="center">
   <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/term.png" alt="Terminator">
 </p>
@@ -175,17 +174,34 @@ chsh -s $(which zsh)
   sudo update-alternatives --config x-terminal-emulator
   sudo apt-get remove gnome-terminal
   sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
-  ```<details>
-  <summary style="cursor: pointer; padding: 10px; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='';">
-    <b>Navigate to Appearance:</b>
-  </summary>
-  <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/tweak.png" alt="Appearance">
+  ```
+
+
+<details>
+  <summary><b>🔍 Показать расширения (кликните!)</b></summary>
+  
+![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
 </details>
 
 
 <details>
-  <summary style="cursor: pointer; padding: 10px; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='';">
-    <b>Navigate to Appearance:</b>
+  <summary style="color: #ff6600; font-weight: bold; background: #f5f5f5; padding: 5px; border-radius: 5px;">
+    📁 Показать расширения
   </summary>
-  <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/tweak.png" alt="Appearance">
+  
+![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
+</details>
+
+
+<details>
+  <summary><b>🖼️ ПОСМОТРЕТЬ ИЗОБРАЖЕНИЕ ▼</b></summary>
+  
+![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
+</details>
+
+
+<details>
+  <summary><b style="color: white; background: #0366d6; padding: 3px 8px; border-radius: 4px;">✨ Показать скриншот</b></summary>
+  
+![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
 </details>
