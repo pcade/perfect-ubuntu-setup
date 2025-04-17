@@ -158,7 +158,9 @@ chsh -s $(which zsh)
   sudo apt update && sudo apt install apt-fast
   ```
 #### Terminator — Advanced Terminal
-![Terminator](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/term.png)
+<p align="center">
+  <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/term.png" alt="Terminator">
+</p>
 - Flexible screen splitting - You can split the terminal window into multiple panes and work with several sessions simultaneously.
 - Advanced interface settings - A variety of options for customizing the appearance and behavior of the terminal.
   ```bash
