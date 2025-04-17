@@ -54,5 +54,6 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 - Ubuntu will then notify you of driver updates and install them automatically at startup.
     <details>
       <summary><b>Example notification:</b></summary>
-      ![Example notification"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/driver.png)
+
+    ![Example notification"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/driver.png)
     </details>
