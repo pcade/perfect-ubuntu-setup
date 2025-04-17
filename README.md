@@ -14,9 +14,8 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 #### How to Activate Ubuntu Pro
 
 1. Visit the [subscription page](https://ubuntu.com/pro).
-2. Follow the steps below:
-    <details>
-      <summary><b>Screenshots of the activation process:</b></summary>
+2. <details>
+      <summary><b>Follow the steps below:</b></summary>
     
       ![Click "Get Ubuntu Pro now"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg1.png)
       
@@ -83,7 +82,10 @@ Out of the box, GNOME feels bland. But with [extensions.gnome.org](extensions.gn
 ## Desktop Customization
 
 - Open GNOME Tweaks.
-- Navigate to Appearance:
-![Appearance](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/tweak.png)
+- <details>
+    <summary><b>Navigate to Appearance:</b></summary>
+
+    ![Appearance](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/tweak.png)
+  </details>
 
 - All user themes are stored in /usr/share/themes/, and icons are stored in /usr/share/icons/ and other corresponding directories. All installed themes and icons will be automatically displayed in GNOME Tweaks.
