@@ -61,7 +61,7 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 
 Out of the box, GNOME feels bland. But with [extensions.gnome.org](extensions.gnome.org), it becomes a canvas for creativity. Here’s my setup:
 
-![setup](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/desk1.png)
+  ![setup](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/desk1.png)
 
 #### Required Packages
 
@@ -89,3 +89,84 @@ Out of the box, GNOME feels bland. But with [extensions.gnome.org](extensions.gn
   </details>
 
 - All user themes are stored in /usr/share/themes/, and icons are stored in /usr/share/icons/ and other corresponding directories. All installed themes and icons will be automatically displayed in GNOME Tweaks.
+
+## Zsh + Aliases + SSH Config — Supercharge Your Terminal
+
+#### Install Zsh and Oh My Zsh
+
+```bash
+sudo apt install zsh  
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+#### Set Zsh as default
+```bash
+chsh -s $(which zsh)
+```
+#### Aliases for Efficiency
+- An alias is a convenient shortcut for frequently used commands that helps speed up work in the terminal. To set up an alias in Zsh, open the configuration file ~/.zshrc and ~/.bashrc in Bash, respectively. Below is my example of alias configuration that may be useful:
+- <details>
+    <summary><b>Alias example:</b></summary>
+
+    ```
+    # Shortened command for ls -la
+    alias ll='ls -la'
+    # Shortened command to clear the terminal
+    alias c='clear'
+    # Shortened command for apt with sudo
+    alias apt='sudo apt-fast'
+    # Shortened command for nano
+    alias nn='nano'
+    # Shortened command to go up one directory
+    alias ..='cd ..'
+    # Shortened command to exit the terminal
+    alias q='exit'
+    # Shortened command for updating and upgrading the system
+    alias uu='sudo apt-fast update && sudo apt-fast upgrade'
+    # Shortened command to view command history
+    alias h='history'
+    # Shortened command to search for a file
+    alias ff='find / -type f -name'
+    # Shortened command to search for a directory
+    alias fd='find / -type d -name'
+    # Shortened command to display the current time
+    alias date='date +%H:%M:%S'
+    # Time and date format in history
+    export HISTTIMEFORMAT='%F %T '
+    # Shortened commands for rebooting, shutting down, and halting the system
+    alias reboot='sudo /sbin/reboot'
+    alias poweroff='sudo /sbin/poweroff'
+    alias halt='sudo /sbin/halt'
+    alias shutdown='sudo /sbin/shutdown'
+    # Confirmation when overwriting files
+    alias mv='mv -i'
+    alias cp='cp -i'
+    alias ln='ln -i'
+    # Protection against deleting the root directory and confirmation when deleting more than 3 files
+    alias rm='rm -I --preserve-root'
+    # Limit on the number of packets sent with ping
+    alias ping='ping -c 5'
+    # Fast ping without waiting for an interval
+    alias fastping='ping -c 100 -s 0.2'
+    ```
+  </details>
+
+## Recommended Packages
+#### Apt-fast — Faster Downloads
+- Replace apt with a multithreaded alternative:
+  ```bash
+  sudo add-apt-repository ppa:apt-fast/stable
+  sudo apt update && sudo apt install apt-fast
+  ```
+#### Terminator — Advanced Terminal
+![Terminator](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/term.png)
+- Flexible screen splitting - You can split the terminal window into multiple panes and work with several sessions simultaneously.
+- Advanced interface settings - A variety of options for customizing the appearance and behavior of the terminal.
+  ```bash
+  sudo apt install terminator
+  ```
+- Below is the method for installing Terminator as the primary terminal:
+  ```bash
+  sudo update-alternatives --config x-terminal-emulator
+  sudo apt-get remove gnome-terminal
+  sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
+  ```
