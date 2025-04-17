@@ -15,19 +15,17 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 
 1. Visit the [subscription page](https://ubuntu.com/pro).
 2. Follow the steps below:
-    - Screenshots of the activation process:
-    - ![Click "Get Ubuntu Pro now"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg1.png)
-    Click "Get Ubuntu Pro now"
-
-
-
-<details>
-  <summary>Нажмите, чтобы развернуть</summary>
-  
-  Здесь скрытый текст.  
-  Можно использовать **Markdown** внутри блока:
-  [Click "Get Ubuntu Pro now"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg1.png)
-  - Списки,
-  - `код`,
-  - [ссылки](https://example.com).
-</details>
+    <details>
+      <summary><b>Screenshots of the activation process:<b></summary>
+    
+      ![Click "Get Ubuntu Pro now"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg1.png)
+      Click "Get Ubuntu Pro now".
+      [Select "Myself".](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg2.png)
+      Select "Myself".
+      [Register an account if you don’t have one.](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg3.png)
+      Register an account if you don’t have one.
+      [Confirm with "Yes, log me in".](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg4.png)
+      Confirm with "Yes, log me in".
+      [Copy the command under "Command to attach machine:".](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg5.png)
+      Copy the command under "Command to attach machine:".
+    </details>
