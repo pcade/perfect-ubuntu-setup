@@ -60,6 +60,7 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 ## GNOME Extensions — Bring Your Desktop to Life
 
 Out of the box, GNOME feels bland. But with [extensions.gnome.org](extensions.gnome.org), it becomes a canvas for creativity. Here’s my setup:
+
 <p align="center">
   <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/desk1.png" alt="setup">
 </p>
@@ -159,9 +160,11 @@ chsh -s $(which zsh)
   sudo apt update && sudo apt install apt-fast
   ```
 #### Terminator — Advanced Terminal
+
 <p align="center">
   <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/term.png" alt="Terminator">
 </p>
+
 - Flexible screen splitting - You can split the terminal window into multiple panes and work with several sessions simultaneously.
 - Advanced interface settings - A variety of options for customizing the appearance and behavior of the terminal.
   ```bash
