@@ -227,3 +227,20 @@ chsh -s $(which zsh)
     xdg-mime default kate.desktop text/plain
     ```
 </details>
+
+#### Other Essentials
+
+- Obsidian: Sync notes with GitHub [(see this guide)](https://forum.obsidian.md/t/the-easiest-way-to-setup-obsidian-git-to-backup-notes/51429).
+- VSCode: Simple yet powerful IDE.
+- [VirtualBox](https://phoenixnap.com/kb/install-virtualbox-on-ubuntu): For virtualization needs.
+- [Drawio](https://github.com/jgraph/drawio-desktop/releases): Diagramming tool.
+- [Telegram](https://desktop.telegram.org/): Messaging app.
+- [VLC](https://www.videolan.org/vlc/download-ubuntu.html): Media player.
+- [PortProton](https://linux-gaming.ru/t/ustanovka-portproton-ispolzovanie-wine-proton-bez-steam/24): Run Windows games on Linux.
+
+
+## Ubuntu Community — Solutions Await
+- In years of using Ubuntu, I’ve never encountered a problem unsolvable via a quick search. Type "<your_issue> ubuntu" into a search engine, and you’ll likely find an answer.
+
+## Final Thoughts
+- Ubuntu’s flexibility and ease of customization make it a versatile choice for countless tasks. Whether tweaking the desktop or optimizing workflows, it’s a platform that grows with you.
