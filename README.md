@@ -16,7 +16,7 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 1. Visit the [subscription page](https://ubuntu.com/pro).
 2. Follow the steps below:
     <details>
-      <summary><b>Screenshots of the activation process:<b></summary>
+      <summary><b>Screenshots of the activation process:</b></summary>
     
       ![Click "Get Ubuntu Pro now"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg1.png)
       
@@ -38,4 +38,21 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
       
       Copy the command under "Command to attach machine:".
 
+    </details>
+
+3. Run the copied command in your terminal:
+    ```bash
+    sudo pro attach <your_token>  
+    ```
+>While some may view these security perks as abstract, why not take advantage of free Pro features?
+
+## Drivers — Ubuntu Handles It All
+- One of Ubuntu’s strengths is automatic driver management. After installation, run:
+    ```bash
+    sudo ubuntu-drivers autoinstall
+    ```
+- Ubuntu will then notify you of driver updates and install them automatically at startup.
+    <details>
+      <summary><b>Example notification:</b></summary>
+      ![Example notification"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/driver.png)
     </details>
