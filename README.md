@@ -15,10 +15,10 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 
 1. Visit the [subscription page](https://ubuntu.com/pro).
 2. <details>
-      <summary><b>Follow the steps below:</b></summary>
-    
+    <summary><b>🔍 Follow the steps below: ▼</b></summary>
+
       ![Click "Get Ubuntu Pro now"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg1.png)
-      
+
       Click "Get Ubuntu Pro now".
 
       ![Select "Myself".](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg2.png)
@@ -26,20 +26,20 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
       Select "Myself".
 
       ![Register an account if you don’t have one.](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg3.png)
-      
+
       Register an account if you don’t have one.
 
       ![Confirm with "Yes, log me in".](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg4.png)
-      
+
       Confirm with "Yes, log me in".
 
       ![Copy the command under "Command to attach machine:".](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg5.png)
-      
+
       Copy the command under "Command to attach machine:".
 
     </details>
 
-3. Run the copied command in your terminal:
+1. Run the copied command in your terminal:
     ```bash
     sudo pro attach <your_token>  
     ```
@@ -51,11 +51,13 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
     sudo ubuntu-drivers autoinstall
     ```
 - Ubuntu will then notify you of driver updates and install them automatically at startup.
-<details>
-  <summary><b>Example notification:</b></summary>
+- <details>
+  <summary><b>🔍 Example notification: ▼</b><summary>
 
-![Example notification"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/driver.png)
-</details>
+  ![Example notification"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/driver.png)
+    
+    </details>
+
 
 ## GNOME Extensions — Bring Your Desktop to Life
 
@@ -158,8 +160,6 @@ chsh -s $(which zsh)
   ```bash<details>
   <summary><b>Extensions:</b></summary>
 
-![Extensions](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/ext1.png)
-</details>
 <p align="center">
   <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/term.png" alt="Terminator">
 </p>
