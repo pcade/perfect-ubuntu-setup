@@ -16,4 +16,5 @@ Many colleagues were surprised to learn about the free Ubuntu Pro subscription. 
 1. Visit the [subscription page](https://ubuntu.com/pro).
 2. Follow the steps below:
     - Screenshots of the activation process:
-3. ![Click "Get Ubuntu Pro now"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg1.png)
+    - ![Click "Get Ubuntu Pro now"](https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/reg1.png)
+    Click "Get Ubuntu Pro now"
