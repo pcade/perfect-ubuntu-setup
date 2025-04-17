@@ -175,4 +175,17 @@ chsh -s $(which zsh)
   sudo update-alternatives --config x-terminal-emulator
   sudo apt-get remove gnome-terminal
   sudo ln -s /usr/bin/terminator /usr/bin/gnome-terminal
-  ```
+  ```<details>
+  <summary style="cursor: pointer; padding: 10px; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='';">
+    <b>Navigate to Appearance:</b>
+  </summary>
+  <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/tweak.png" alt="Appearance">
+</details>
+
+
+<details>
+  <summary style="cursor: pointer; padding: 10px; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#f0f0f0'" onmouseout="this.style.backgroundColor='';">
+    <b>Navigate to Appearance:</b>
+  </summary>
+  <img src="https://github.com/pcade/perfect-ubuntu-setup/blob/main/images/tweak.png" alt="Appearance">
+</details>
