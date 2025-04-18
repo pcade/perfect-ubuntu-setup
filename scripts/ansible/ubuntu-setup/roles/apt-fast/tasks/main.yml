@@ -1,0 +1,37 @@
+---
+- name: "Notify: apt-fast role started"
+  debug:
+    msg: "Notify: apt-fast role started"
+
+- name: Add apt-fast repository
+  apt_repository:
+    repo: ppa:apt-fast/stable
+    state: present
+  become: true
+
+- name: "Notify: repository added"
+  debug:
+    msg: "Notify: repository apt-fast added."
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  become: true
+
+- name: "Notify: apt cache updated"
+  debug:
+    msg: "Notify: apt cache updated."
+
+- name: Install apt-fast
+  apt:
+    name: apt-fast
+    state: present
+  become: true
+
+- name: "Notify: apt-fast installed"
+  debug:
+    msg: "Notify: apt-fast installed."
+
+- name: "Notify: apt-fast role finished"
+  debug:
+    msg: "Notify: apt-fast role finished"

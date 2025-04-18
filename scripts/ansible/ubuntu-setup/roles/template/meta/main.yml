@@ -1,0 +1,37 @@
+---
+galaxy_info:
+  author: Pahomov Grigorii
+  description: Post-installation setup for Ubuntu environment.
+  company: Personal Project
+  license: MIT
+  min_ansible_version: "2.10.8"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+  galaxy_tags:
+    - ubuntu
+    - jammy
+    - post-installation
+    - setup
+    - environment
+    - configuration
+    - package
+    - apt
+    - aptfast
+    - manager
+    - apt-fast
+    - virtualbox
+    - kate
+    - drawio
+    - telegram
+    - telegram-desktop
+    - terminator
+    - zsh
+    - oh-my-zsh
+    - extensions
+    - extensions-manager
+    - tweaks
+    - nemo
+
+dependencies: []

@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: Pahomov Grigorii
+  description: Role to install apt-fast on Ubuntu 22.04 LTS
+  company: Personal Project
+  license: MIT
+  min_ansible_version: "2.10.8"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+  galaxy_tags:
+    - ubuntu
+    - jammy
+    - post-installation
+    - setup
+    - environment
+    - configuration
+    - package
+    - apt
+    - apt-fast
+
+dependencies: []
