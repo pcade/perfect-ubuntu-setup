@@ -1,0 +1,27 @@
+---
+- name: "Notify: kate role started"
+  debug:
+    msg: "Notify: kate role started"
+
+- name: Install kate
+  apt:
+    name: kate
+    state: present
+    upgrade: dist
+    install_recommends: no
+
+- name: "Notify: kate installed"
+  debug:
+    msg: "Notify: kate installed."
+
+- name: Set kate as default file editor
+  command: xdg-mime default kate.desktop text/plain
+  become: true
+
+- name: "Notify: kate Configured"
+  debug:
+    msg: "Notify: kate Configured"
+
+- name: "Notify: kate role finished"
+  debug:
+    msg: "Notify: kate role finished"
