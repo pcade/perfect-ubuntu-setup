@@ -7,7 +7,6 @@
   apt:
     name: kate
     state: present
-    upgrade: dist
     install_recommends: no
 
 - name: "Notify: kate installed"
@@ -15,7 +14,7 @@
     msg: "Notify: kate installed."
 
 - name: Set kate as default file editor
-  command: xdg-mime default kate.desktop text/plain
+  command: xdg-mime default org.kde.kate.desktop text/plain
   become: true
 
 - name: "Notify: kate Configured"

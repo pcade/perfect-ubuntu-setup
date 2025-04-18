@@ -7,15 +7,38 @@
   apt:
     name: nemo
     state: present
-    upgrade: dist
     install_recommends: no
 
 - name: "Notify: nemo installed"
   debug:
     msg: "Notify: nemo installed."
 
+- name: Remove nautilus
+  block:
+  - name: Remove Nautilus
+    become: true
+    apt:
+      name: nautilus
+      state: absent
+      purge: yes
+
+  - name: Autoremove unused packages
+    become: true
+    apt:
+      autoremove: yes
+
+- name: "Notify: Nautilus removed"
+  debug:
+    msg: "Notify: Nautilus removed."
+
 - name: Configure Nemo as default file manager
   block:
+    - name: Install xdg-utils
+      apt:
+        name: xdg-utils
+        state: present
+        install_recommends: no
+
     - name: Set Nemo as default file manager
       command: xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
       become: true
