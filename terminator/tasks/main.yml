@@ -1,0 +1,40 @@
+---
+- name: "Notify: terminator role started"
+  debug:
+    msg: "Notify: terminator role started"
+
+- name: "Install Terminator"
+  apt:
+    name: terminator
+    state: present
+
+- name: "Notify: terminator installed"
+  debug:
+    msg: "Notify: terminator installed."
+
+- name: Configure Terminator as default terminal
+  block:
+    - name: Set Terminator as default terminal
+      command: update-alternatives --set x-terminal-emulator /usr/bin/terminator
+      become: true
+
+    - name: Remove gnome-terminal
+      apt:
+        name: gnome-terminal
+        state: absent
+
+    - name: Create symlink for gnome-terminal to Terminator
+      file:
+        src: /usr/bin/terminator
+        dest: /usr/bin/gnome-terminal
+        state: link
+      become: true
+  become: true
+
+- name: "Notify: terminator configured"
+  debug:
+    msg: "Notify: terminator configured"
+
+- name: "Notify: terminator role finished"
+  debug:
+    msg: "Notify: terminator role finished"
