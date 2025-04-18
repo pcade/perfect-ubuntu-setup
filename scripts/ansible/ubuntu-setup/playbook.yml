@@ -1,0 +1,9 @@
+---
+- name: Setup Ubuntu environment
+  hosts: localhost
+  become: true
+  roles:
+    - apt-fast
+    - kate
+    - nemo
+    - terminator
