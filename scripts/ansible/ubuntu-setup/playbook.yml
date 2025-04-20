@@ -3,8 +3,8 @@
   hosts: localhost
   become: true
   roles:
+    - drivers
     - apt-fast
     - kate
     - nemo
     - terminator
-    - zsh

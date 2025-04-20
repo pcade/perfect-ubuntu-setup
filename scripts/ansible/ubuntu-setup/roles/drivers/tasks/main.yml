@@ -1,0 +1,34 @@
+---
+- name: "Notify: drivers role started"
+  debug:
+    msg: "Notify: drivers role started"
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  become: true
+
+- name: "Notify: apt cache updated"
+  debug:
+    msg: "Notify: apt cache updated."
+
+- name: Upgrade packages
+  apt:
+    upgrade: dist
+  become: true
+
+- name: "Notify: apt cache upgraded"
+  debug:
+    msg: "Notify: apt cache upgraded"
+
+- name: Ubuntu drivers autoinstall
+  command: ubuntu-drivers autoinstall
+  become: true
+
+- name: "Notify: drivers installed"
+  debug:
+    msg: "Notify: drivers installed."
+
+- name: "Notify: drivers role finished"
+  debug:
+    msg: "Notify: drivers role finished"
