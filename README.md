@@ -244,7 +244,3 @@ chsh -s $(which zsh)
 
 ## Final Thoughts
 - Ubuntu’s flexibility and ease of customization make it a versatile choice for countless tasks. Whether tweaking the desktop or optimizing workflows, it’s a platform that grows with you.
-
-![GitHub](https://img.shields.io/badge/🐙_GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-
-![GitHub](https://img.shields.io/badge/💻_GitHub-181717?style=for-the-badge&logo=github&logoColor=white)

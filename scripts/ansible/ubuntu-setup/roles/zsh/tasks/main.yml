@@ -1,0 +1,33 @@
+---
+- name: "Notify: zsh role started"
+  debug:
+    msg: "Notify: zsh role started"
+
+- name: Install Zsh
+  apt:
+    name: zsh
+    state: present
+  become: true
+
+- name: "Notify: zsh installed"
+  debug:
+    msg: "Notify: zsh installed."
+
+- name: Install Oh My Zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    creates: ~/.oh-my-zsh
+  become: true
+
+- name: "Notify: Oh Myzsh installed"
+  debug:
+    msg: "Notify: Oh Myzsh installed."
+
+- name: Configure Zsh likes default
+  command: chsh -s $(which zsh)
+  become: true
+  when: ansible_user_id != 'root'
+
+- name: "Notify: zsh role finished"
+  debug:
+    msg: "Notify: zsh role finished"
