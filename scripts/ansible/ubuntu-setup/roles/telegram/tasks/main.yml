@@ -1,0 +1,57 @@
+---
+- name: "Notify: telegram role started"
+  debug:
+    msg: "Notify: telegram role started"
+
+- name: Install dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ dependencies }}"
+  become: true
+
+- name: "Notify: dependencies installed"
+  debug:
+    msg: "Notify: dependencies installed."
+
+- name: Download Telegram
+  get_url:
+    url: "{{ telegram_download_url }}"
+    dest: "/tmp/telegram.tar.xz"
+  become: true
+
+- name: "Notify: telegram downloaded"
+  debug:
+    msg: "Notify: telegram downloaded."
+
+- name: Unpack Telegram
+  unarchive:
+    src: /tmp/telegram.tar.xz
+    dest: /opt/
+    remote_src: yes
+  become: true
+
+- name: "Notify: telegram unpacked"
+  debug:
+    msg: "Notify: telegram unpacked."
+
+- name: Remove Telegram archive
+  file:
+    path: /tmp/telegram.tar.xz
+    state: absent
+  become: true
+
+- name: "Notify: telegram archive removed"
+  debug:
+    msg: "Notify: telegram archive removed."
+
+- name: Configure Telegram
+  file:
+    src: /opt/Telegram/Telegram
+    dest: /usr/bin/telegram
+    state: link
+  become: true
+
+- name: "Notify: telegram Configured"
+  debug:
+    msg: "Notify: telegram Configured"
