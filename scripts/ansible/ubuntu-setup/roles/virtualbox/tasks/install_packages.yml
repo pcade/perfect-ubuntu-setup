@@ -1,0 +1,9 @@
+---
+- name: Install VirtualBox
+  apt:
+    name: "{{ virtualbox_packages }}"
+    state: present
+
+- name: "Notify: VirtualBox installed"
+  debug:
+    msg: "Notify: VirtualBox installed."

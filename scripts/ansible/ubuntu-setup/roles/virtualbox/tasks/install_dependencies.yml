@@ -1,0 +1,13 @@
+---
+- name: Apt update
+  apt:
+    update_cache: yes
+
+- name: Install system dependencies
+  apt:
+    name: "{{ system_dependencies }}"
+    state: present
+
+- name: "Notify: system dependencies installed"
+  debug:
+    msg: "Notify: system dependencies installed."

@@ -1,0 +1,16 @@
+---
+- name: Append vboxusers group
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: vboxusers
+    append: yes
+
+- name: "Notify: vboxusers appended"
+  debug:
+    msg: "Notify: vboxusers appended."
+
+- name: Init VirtualBox
+  service:
+    name: vboxdrv
+    state: started
+    enabled: yes

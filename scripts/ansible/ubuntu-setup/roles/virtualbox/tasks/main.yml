@@ -1,54 +1,15 @@
 ---
-- name: Установка системных зависимостей
-  apt:
-    name: "{{ system_dependencies }}"
-    state: present
-    update_cache: yes
+- name: "Notify: virtualbox role started"
+  debug:
+    msg: "Notify: virtualbox role started"
 
-- name: Добавление ключа репозитория Oracle VirtualBox
-  apt_key:
-    url: "{{ virtualbox_key_url }}"
-    state: present
-
-- name: Добавление репозитория VirtualBox
-  apt_repository:
-    repo: "{{ virtualbox_repo_url }} {{ virtualbox_repo_dist }} {{ virtualbox_repo_component }}"
-    state: present
-    filename: virtualbox.list
-
-- name: Обновление кэша apt
-  apt:
-    update_cache: yes
-
-- name: Установка VirtualBox
-  apt:
-    name: "{{ virtualbox_packages }}"
-    state: present
-
-- name: Добавление пользователя в группу vboxusers
-  user:
-    name: "{{ ansible_user_id }}"
-    groups: vboxusers
-    append: yes
-
-- name: Установка Extension Pack (если включено)
-  block:
-    - name: Скачивание Extension Pack
-      get_url:
-        url: "{{ extension_pack_url }}"
-        dest: "{{ extension_pack_path }}"
-        mode: "0644"
-
-    - name: Установка Extension Pack
-      community.general.virtualbox_extension_pack:
-        name: "Oracle VM VirtualBox Extension Pack"
-        path: "{{ extension_pack_path }}"
-        state: present
-        virtualbox_path: /usr/bin/virtualbox
+- include_tasks: install_dependencies.yml
+- include_tasks: add_repository.yml
+- include_tasks: install_packages.yml
+- include_tasks: configure_virtualbox.yml
+- include_tasks: install_extension.yml
   when: install_extension_pack | bool
 
-- name: Запуск сервиса VirtualBox
-  service:
-    name: vboxdrv
-    state: started
-    enabled: yes
+- name: "Notify: virtualbox role finished"
+  debug:
+    msg: "Notify: virtualbox role finished"
