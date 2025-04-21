@@ -1,0 +1,26 @@
+---
+# Основные настройки
+virtualbox_version: "7.0"
+install_extension_pack: true
+
+# Пакеты для установки
+virtualbox_packages:
+  - virtualbox-{{ virtualbox_version }}
+
+system_dependencies:
+  - dkms
+  - build-essential
+  - linux-headers-generic
+  - curl
+  - wget
+
+# Настройки репозитория
+virtualbox_repo_url: "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian"
+virtualbox_repo_dist: "jammy"
+virtualbox_repo_component: "contrib"
+virtualbox_key_url: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+
+# Настройки Extension Pack
+extension_pack_version: "7.0.0"
+extension_pack_url: "https://download.virtualbox.org/virtualbox/{{ extension_pack_version }}/Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack_version }}.vbox-extpack"
+extension_pack_path: "/tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack"
