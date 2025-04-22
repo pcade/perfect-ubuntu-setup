@@ -40,7 +40,7 @@ package_name: code
 # Configure VSCode
 vscode_user_settings:
   workbench.colorTheme: "Dracula Theme"
-  workbench.iconTheme: "icons"
+  workbench.iconTheme: "icons-icons"
   workbench.editor.empty.hint: "hidden"
   editor.renderWhitespace: "all"
   explorer.confirmDelete: false
