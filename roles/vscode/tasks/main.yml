@@ -1,0 +1,41 @@
+---
+- name: "Notify: vscode role started"
+  debug:
+    msg: "Notify: vscode role started"
+
+- name: Install dependencies
+  include_tasks: install_dependencies.yml
+  register: install_dependencies_result
+  ignore_errors: true
+
+- name: Install VSCode
+  include_tasks: install_vscode.yml
+  register: install_vscode_result
+  when: install_dependencies_result is not failed
+  ignore_errors: true
+
+- name: configure VSCode
+  include_tasks: configure_vscode.yml
+  register: configure_vscode_result
+  when: install_vscode_result is not failed
+  ignore_errors: true
+
+- name: Install extensions
+  include_tasks: install_extensions.yml
+  register: install_extensions_result
+  when: install_vscode_result is not failed
+  ignore_errors: true
+
+- name: Set task status
+  set_fact:
+    vscode_tasks_status: "{{ install_dependencies_result is not failed and install_vscode_result is not failed and install_extensions_result is not failed }}"
+
+- name: "Notify: vscode role finished"
+  debug:
+    msg: "Notify: vscode role finished"
+  when: vscode_tasks_status
+
+- name: "Notify: vscode role finished with failure"
+  debug:
+    msg: "Notify: vscode role finished with failure"
+  when: not vscode_tasks_status

@@ -1,0 +1,25 @@
+---
+- name: "Notify: install_dependencies role started"
+  debug:
+    msg: "Notify: install_dependencies role started"
+
+- name: Installation of dependencies
+  apt:
+    name:
+      - wget
+      - gpg
+      - apt-transport-https
+    state: present
+    update_cache: yes
+  register: install_dependencies_result
+  ignore_errors: true
+
+- name: "Notify: install_dependencies role finished"
+  debug:
+    msg: "Notify: install_dependencies role finished"
+  when: install_dependencies_result is not failed
+
+- name: "Notify: install_dependencies finished with failure"
+  debug:
+    msg: "Notify: install_dependencies finished with failure"
+  when: install_dependencies_result is failed

@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: Pahomov Grigorii
+  description: Role to install vscode for Ubuntu environment.
+  company: Personal Project
+  license: MIT
+  min_ansible_version: "2.10.8"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+  galaxy_tags:
+    - ubuntu
+    - jammy
+    - post-installation
+    - setup
+    - environment
+    - configuration
+    - package
+    - code
+    - vscode
+
+dependencies: []

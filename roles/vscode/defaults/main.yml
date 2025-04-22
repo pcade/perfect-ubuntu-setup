@@ -1,0 +1,48 @@
+---
+# Extensions for VSCode
+vscode_extensions:
+  - dracula-theme.theme-dracula
+  - GitHub.github-vscode-theme
+  - tal7aouy.icons
+  - ms-python.python
+  - ms-python.debugpy
+  - ms-python.vscode-pylance
+  - ms-azuretools.vscode-docker
+  - mhutchie.git-graph
+  - eamodio.gitlens
+  - Blackboxapp.blackbox
+  - ms-vscode.cpptools
+  - twxs.cmake
+  - vscjava.vscode-java-pack
+  - vscjava.vscode-java-debug
+  - vscjava.vscode-gradle
+  - vscjava.vscode-maven
+  - vscjava.vscode-java-dependency
+  - vscjava.vscode-java-test
+  - redhat.java
+  - ms-vscode-remote.remote-containers
+  - GitHub.copilot
+  - GitHub.copilot-chat
+  - VisualStudioExptTeam.vscodeintellicode
+  - VisualStudioExptTeam.intellicode-api-usage-examples
+  - yzhang.markdown-all-in-one
+  - shd101wyy.markdown-preview-enhanced
+  - funkyremi.vscode-google-translate
+  - redhat.ansible
+  - redhat.vscode-yaml
+
+# Repository for VSCode
+vscode_repo_key: https://packages.microsoft.com/keys/microsoft.asc
+vscode_repo_url: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+
+package_name: code
+
+# Configure VSCode
+vscode_user_settings:
+  workbench.colorTheme: "Dracula Theme"
+  workbench.iconTheme: "icons"
+  workbench.editor.empty.hint: "hidden"
+  editor.renderWhitespace: "all"
+  explorer.confirmDelete: false
+  vscodeGoogleTranslate.preferredLanguage: "Russian"
+  git.confirmSync: false

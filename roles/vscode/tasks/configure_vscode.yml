@@ -1,0 +1,30 @@
+---
+- name: "Notify: configure_vscode role started"
+  debug:
+    msg: "Notify: configure_vscode role started"
+
+- name: Mkdir for config VSCode
+  file:
+    path: "{{ ansible_user_dir }}/.config/Code/User"
+    state: directory
+    mode: '0755'
+  register: config_dir_result
+  ignore_errors: true
+
+- name: Install settings Vscode
+  copy:
+    dest: "{{ ansible_user_dir }}/.config/Code/User/settings.json"
+    content: "{{ vscode_user_settings | to_nice_json }}"
+  register: settings_result
+  ignore_errors: true
+  when: config_dir_result is not failed
+
+- name: "Notify: vscode role finished"
+  debug:
+    msg: "Notify: vscode role finished"
+  when: config_dir_result is not failed and settings_result is not failed
+
+- name: "Notify: configure_vscode finished with failure"
+  debug:
+    msg: "Notify: configure_vscode finished with failure"
+  when: vscode_extension_result is failed or config_dir_result is failed or settings_result is failed
