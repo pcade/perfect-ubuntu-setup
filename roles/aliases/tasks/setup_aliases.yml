@@ -1,0 +1,48 @@
+---
+- name: "Notify: setup_aliases role started"
+  debug:
+    msg: "Notify: setup_aliases role started"
+
+- name: Create directory for global aliases
+  file:
+    path: /etc/profile.d
+    state: directory
+    mode: '0755'
+  become: true
+  register: profile_dir_result
+
+- name: Maked global aliases
+  template:
+    src: bash_aliases.j2
+    dest: /etc/profile.d/custom_aliases.sh
+    mode: '0644'
+  become: true
+  register: bash_aliases_result
+  when: profile_dir is not failed
+
+- name: Update .bashrc for all users
+  blockinfile:
+    path: "{{ ansible_user_dir }}/.bashrc"
+    block: |
+      if [ -f /etc/profile.d/custom_aliases.sh ]; then
+          . /etc/profile.d/custom_aliases.sh
+      fi
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - CUSTOM ALIASES"
+    create: yes
+  become: true
+  register: bashrc_update_result
+  when: bash_aliases is not failed
+
+- name: Set task status
+  set_fact:
+    setup_aliases_tasks_status: "{{ profile_dir_result is not failed and bash_aliases_result is not failed and bashrc_update_result is not failed }}"
+
+- name: "Notify: setup_aliases role finished"
+  debug:
+    msg: "Notify: setup_aliases role finished"
+  when: setup_aliases_tasks_status
+
+- name: "Notify: setup_aliases role finished with failure"
+  debug:
+    msg: "Notify: setup_aliases role finished with failure"
+  when: not setup_aliases_tasks_status

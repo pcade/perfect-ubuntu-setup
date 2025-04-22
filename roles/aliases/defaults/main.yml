@@ -1,0 +1,33 @@
+---
+# Общие алиасы для всех пользователей
+shell_aliases:
+  ll: 'ls -la'
+  c: 'clear'
+  apt: 'sudo apt-fast'
+  nn: 'nano'
+  '..': 'cd ..'
+  q: 'exit'
+  uu: 'sudo apt-fast update && sudo apt-fast upgrade'
+  h: 'history'
+  ff: 'find / -type f -name'
+  fd: 'find / -type d -name'
+  date: 'date +%H:%M:%S'
+  reboot: 'sudo /sbin/reboot'
+  poweroff: 'sudo /sbin/poweroff'
+  halt: 'sudo /sbin/halt'
+  shutdown: 'sudo /sbin/shutdown'
+  mv: 'mv -i'
+  cp: 'cp -i'
+  ln: 'ln -i'
+  rm: 'rm -I --preserve-root'
+  ping: 'ping -c 5'
+  fastping: 'ping -c 100 -s 0.2'
+
+# Переменные окружения
+shell_env_vars:
+  HISTTIMEFORMAT: "'%F %T '"
+
+# Настройки для ZSH
+enable_zsh: true
+zsh_config_files:
+  - .zshrc
