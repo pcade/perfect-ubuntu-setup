@@ -1,0 +1,14 @@
+---
+- name: "Notify: Vlc role started"
+  debug:
+    msg: "Notify: Vlc role started"
+
+- name: Install VLC
+  include_tasks: install.yml
+
+- name: Configure VLC
+  include_tasks: configure.yml
+
+- name: "Notify: Vlc role finished"
+  debug:
+    msg: "Notify: Vlc role finished"

@@ -1,0 +1,12 @@
+---
+- name: Install VLC
+  apt:
+    name: "{{ package_name }}"
+    state: present
+  register: installation_status
+  become: true
+
+- name: "Notify: VLC installed"
+  debug:
+    msg: "Notify: VLC installed."
+  when: installation_status.changed == False

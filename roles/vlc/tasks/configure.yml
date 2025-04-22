@@ -1,0 +1,16 @@
+---
+- name: Configure VLC for video
+  command: xdg-mime default vlc.desktop video/mp4
+  become: true
+
+- name: Configure VLC for audio
+  command: xdg-mime default vlc.desktop audio/mpeg
+  become: true
+
+- name: Configure VLC for octet
+  command: xdg-mime default vlc.desktop application/octet-stream
+  become: true
+
+- name: "Notify: Vlc configured"
+  debug:
+    msg: "Notify: Vlc configured."
