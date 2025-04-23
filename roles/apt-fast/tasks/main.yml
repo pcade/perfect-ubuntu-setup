@@ -3,35 +3,30 @@
   debug:
     msg: "Notify: apt-fast role started"
 
-- name: Add apt-fast repository
-  apt_repository:
-    repo: ppa:apt-fast/stable
-    state: present
-  become: true
+- name: Include repository setup
+  ansible.builtin.include_tasks: add_repository.yml
+  register: include_repository_result
 
-- name: "Notify: repository added"
-  debug:
-    msg: "Notify: repository apt-fast added."
+- name: Include installation tasks
+  ansible.builtin.include_tasks: install.yml
+  register: installation_result
+  when: include_repository_result is not failed
 
-- name: Update apt cache
-  apt:
-    update_cache: yes
-  become: true
+- name: Include configuration tasks
+  ansible.builtin.include_tasks: configure.yml
+  register: configuration_result
+  when: installation_result is not failed
 
-- name: "Notify: apt cache updated"
-  debug:
-    msg: "Notify: apt cache updated."
-
-- name: Install apt-fast
-  apt:
-    name: apt-fast
-    state: present
-  become: true
-
-- name: "Notify: apt-fast installed"
-  debug:
-    msg: "Notify: apt-fast installed."
+- name: Set task status
+  set_fact:
+    apt_fast_tasks_status: "{{ include_repository_result is not failed and installation_result is not failed and configuration_result is not failed }}"
 
 - name: "Notify: apt-fast role finished"
   debug:
     msg: "Notify: apt-fast role finished"
+  when: apt_fast_tasks_status
+
+- name: "Notify: apt-fast role finished with failure"
+  debug:
+    msg: "Notify: apt-fast role finished with failure"
+  when: not apt_fast_tasks_status

@@ -1,0 +1,22 @@
+---
+- name: "Notify: add_repository role started"
+  debug:
+    msg: "Notify: add_repository role started"
+
+- name: Add apt-fast PPA repository
+  ansible.builtin.apt_repository:
+    repo: "{{ apt_fast.repo }}"
+    state: present
+  become: true
+  tags: apt-fast-repo
+  register: add_repository_result
+
+- name: "Notify: add_repository role finished"
+  debug:
+    msg: "Notify: add_repository role finished"
+  when: add_repository_result is not failed
+
+- name: "Notify: add_repository role finished with failure"
+  debug:
+    msg: "Notify: add_repository role finished with failure"
+  when: add_repository_result is failed

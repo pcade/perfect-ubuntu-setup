@@ -30,6 +30,7 @@ vscode_extensions:
   - funkyremi.vscode-google-translate
   - redhat.ansible
   - redhat.vscode-yaml
+  - wholroyd.jinja
 
 # Repository for VSCode
 vscode_repo_key: https://packages.microsoft.com/keys/microsoft.asc

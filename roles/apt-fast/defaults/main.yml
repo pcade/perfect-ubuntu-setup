@@ -1,0 +1,11 @@
+---
+apt_fast:
+  repo: "ppa:apt-fast/stable"
+  packages:
+    - apt-fast
+  config:
+    DOWNLOADBEFORE: "true"
+    MIRRORS: ""
+    _MAXNUM: "8"
+    _MAXCONPERSRV: "5"
+    _SPLITBUFFER: "true"

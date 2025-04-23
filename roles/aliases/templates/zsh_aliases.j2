@@ -1,9 +1,9 @@
-# Алиасы для ZSH
+# Alias ZSH
 {% for alias, command in shell_aliases.items() %}
 alias {{ alias }}='{{ command }}'
 {% endfor %}
 
-# Переменные окружения
+# Environment Variables
 {% for var, value in shell_env_vars.items() %}
 export {{ var }}={{ value }}
 {% endfor %}
