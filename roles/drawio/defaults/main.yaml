@@ -1,0 +1,25 @@
+---
+# Version and download URL
+drawio_version: "20.8.16"
+drawio_download_url: "https://github.com/jgraph/drawio-desktop/releases/download/v{{ drawio_version }}/drawio-amd64-{{ drawio_version }}.deb"
+
+# Dependencies
+drawio_dependencies:
+      - libgtk-3-0
+      - libnotify4
+      - libnss3
+      - libxss1
+      - libxtst6
+      - xdg-utils
+      - libatspi2.0-0
+      - libuuid1
+      - libappindicator3-1
+      - libsecret-1-0
+
+# Path install
+drawio_package_path: "/tmp/drawio.deb"
+drawio_install_path: "/opt/drawio"
+drawio_desktop_file: "/usr/share/applications/drawio.desktop"
+
+# Clean settings
+drawio_remove_package_after_install: true

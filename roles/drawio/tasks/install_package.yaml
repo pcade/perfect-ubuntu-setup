@@ -1,0 +1,19 @@
+---
+- name: "Notify: install_package role started"
+  ansible.builtin.debug:
+    msg: "Notify: install_package role started"
+
+- name: "Install draw.io"
+  ansible.builtin.apt:
+    deb: "{{ install_package_package_path }}"
+    state: present
+    update_cache: true
+  become: true
+  register: install_package_result
+  ignore_errors: true
+
+- name: "Notify: install_package role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: install_package role finished
+      {% if not install_package_result %} with failure{% endif %}

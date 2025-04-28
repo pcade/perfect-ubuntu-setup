@@ -1,0 +1,20 @@
+---
+- name: "Notify: install_dependencies role started"
+  ansible.builtin.debug:
+    msg: "Notify: install_dependencies role started"
+
+- name: "Install required dependencies for Draw.io"
+  community.general.apt:
+    name: "{{ item }}"
+    loop: "{{ drawio_dependencies }}"
+    state: present
+    update_cache: true
+  become: true
+  register: install_dependencies_result
+  ignore_errors: true
+
+- name: "Notify: install_dependencies role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: install_dependencies role finished
+      {% if not install_dependencies_result %} with failure{% endif %}

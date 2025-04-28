@@ -1,0 +1,20 @@
+---
+- name: "Notify: download_package role started"
+  ansible.builtin.debug:
+    msg: "Notify: download_package role started"
+
+- name: "Download draw.io DEB package"
+  ansible.builtin.get_url:
+    url: "{{ drawio_download_url }}"
+    dest: "{{ drawio_package_path }}"
+    mode: "0644"
+    timeout: 30
+    validate_certs: true
+  register: download_package_result
+  ignore_errors: true
+
+- name: "Notify: download_package role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: download_package role finished
+      {% if not download_package_result %} with failure{% endif %}

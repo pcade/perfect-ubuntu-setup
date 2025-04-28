@@ -1,0 +1,45 @@
+---
+- name: "Notify: drawio role started"
+  ansible.builtin.debug:
+    msg: "Notify: drawio role started"
+
+- name: "Include dependencies installation tasks"
+  ansible.builtin.include_tasks: install_dependencies.yml
+  register: install_dependencies_result
+  ignore_errors: true
+
+- name: "Include package download tasks"
+  ansible.builtin.include_tasks: download_package.yml
+  register: download_package_result
+  when: install_dependencies_result is not failed
+  ignore_errors: true
+
+- name: "Include package installation tasks"
+  ansible.builtin.include_tasks: install_package.yml
+  register: install_package_result
+  when: download_package_result is not failed
+  ignore_errors: true
+
+- name: "Include shortcut configuration tasks"
+  ansible.builtin.include_tasks: configure_shortcut.yml
+  register: configure_shortcut_result
+  when: install_package_result is not failed
+  ignore_errors: true
+
+- name: "Clean up temporary files (if enabled)"
+  ansible.builtin.include_tasks: cleanup.yml
+  when: remove_package_after_install | bool
+
+- name: "Set task status"
+  ansible.builtin.set_fact:
+    drawio_tasks_status: >-
+      {{ install_dependencies_result is not failed and
+         download_package_result is not failed and
+         install_package_result is not failed and
+         configure_shortcut_result is not failed }}
+
+- name: "Notify: drawio role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: drawio role finished
+      {% if not drawio_tasks_status %} with failure{% endif %}

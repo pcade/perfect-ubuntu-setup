@@ -1,0 +1,35 @@
+---
+- name: "Notify: configure_shortcut role started"
+  ansible.builtin.debug:
+    msg: "Notify: configure_shortcut role started"
+
+- name: "Create desktop file for draw.io"
+  ansible.builtin.copy:
+    dest: "{{ drawio_desktop_file }}"
+    content: |
+      [Desktop Entry]
+      Version=1.0
+      Type=Application
+      Name=draw.io
+      Exec=drawio %U
+      Icon=drawio
+      Comment=draw.io Desktop
+      Categories=Graphics;
+      MimeType=application/vnd.jgraph.mxfile;application/vnd.visio;
+    mode: "0644"
+  register: create_icon_result
+  ignore_errors: true
+
+- name: "Update desktop cache"
+  ansible.builtin.command: update-desktop-database
+  args:
+    creates: "/usr/share/applications/mimeinfo.cache"
+  register: update_cache_result
+  ignore_errors: true
+  when: create_icon_result is not failed
+
+- name: "Notify: configure_shortcut role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: configure_shortcut role finished
+      {% if not create_icon_result and if not create_icon_result %} with failure{% endif %}

@@ -1,0 +1,9 @@
+---
+- name: "Restart Drawio"
+  ansible.builtin.shell: |
+    pkill -f drawio
+  failed_when: false
+  changed_when: ansible_facts['processes'] | selectattr('name', 'search', 'drawio') | list | length > 0
+  when: ansible_facts['processes'] is defined and
+        ansible_facts['processes'] | selectattr('name', 'search', 'drawio') | list | length > 0
+  check_mode: true

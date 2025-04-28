@@ -1,0 +1,17 @@
+---
+- name: "Notify: cleanup role started"
+  ansible.builtin.debug:
+    msg: "Notify: cleanup role started"
+
+- name: "Remove deb package"
+  ansible.builtin.file:
+    path: "{{ drawio_package_path }}"
+    state: absent
+  become: true
+  register: cleanup_result
+
+- name: "Notify: cleanup role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: cleanup role finished
+      {% if not cleanup_result %} with failure{% endif %}

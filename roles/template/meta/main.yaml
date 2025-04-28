@@ -12,7 +12,7 @@ galaxy_info:
   galaxy_tags:
     - ubuntu
     - jammy
-    - post-installation
+    - postinstallation
     - setup
     - environment
     - configuration
@@ -20,17 +20,17 @@ galaxy_info:
     - apt
     - aptfast
     - manager
-    - apt-fast
+    - aptfast
     - virtualbox
     - kate
     - drawio
     - telegram
-    - telegram-desktop
+    - telegramdesktop
     - terminator
     - zsh
-    - oh-my-zsh
+    - ohmyzsh
     - extensions
-    - extensions-manager
+    - extensionsmanager
     - tweaks
     - nemo
 
