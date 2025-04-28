@@ -1,0 +1,37 @@
+---
+- name: "Notify: install_vscode role started"
+  ansible.builtin.debug:
+    msg: "Notify: install_vscode role started"
+
+- name: "Append GPG key Microsoft"
+  ansible.builtin.apt_key:
+    url: "{{ vscode_repo_key }}"
+    state: present
+  register: gpg_key_result
+  ignore_errors: true
+
+- name: "Append Repository VSCode"
+  ansible.builtin.apt_repository:
+    repo: "{{ vscode_repo_url }}"
+    state: present
+    filename: vscode
+  register: repo_append_result
+  ignore_errors: true
+
+- name: "Install VSCode"
+  community.general.apt:
+    name: "{{ vscode_package_name }}"
+    state: present
+    update_cache: yes
+  register: package_install_result
+  ignore_errors: true
+
+- name: "Set task status"
+  ansible.builtin.set_fact:
+    vscode_install_status: "{{ gpg_key_result is not failed and repo_append_result is not failed and package_install_result is not failed }}"
+
+- name: "Notify: vscode role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: vscode role finished
+      {% if not vscode_install_status %} with failure{% endif %}

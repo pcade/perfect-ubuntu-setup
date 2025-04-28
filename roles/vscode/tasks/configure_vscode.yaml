@@ -1,6 +1,6 @@
 ---
 - name: "Notify: configure_vscode role started"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: configure_vscode role started"
 
 - name: Mkdir for config VSCode
@@ -20,11 +20,11 @@
   when: config_dir_result is not failed
 
 - name: "Notify: vscode role finished"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: vscode role finished"
   when: config_dir_result is not failed and settings_result is not failed
 
 - name: "Notify: configure_vscode finished with failure"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: configure_vscode finished with failure"
   when: vscode_extension_result is failed or config_dir_result is failed or settings_result is failed

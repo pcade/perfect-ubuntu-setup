@@ -1,7 +1,10 @@
 {
     "ansible.python.interpreterPath": "/bin/python3",
     "yaml.schemas": {
-        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks": "file:///home/gpahomov/Nextcloud/scripts/git/perfect-ubuntu-setup/roles/drawio/tasks/download_package.yml"
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks": [
+            "file:///home/gpahomov/Nextcloud/scripts/git/perfect-ubuntu-setup/roles/drawio/tasks/download_package.yml",
+            "file:///home/gpahomov/Nextcloud/scripts/git/perfect-ubuntu-setup/roles/vscode/tasks/install_extensions.yaml"
+        ]
     },
     "editor.defaultFormatter": "redhat.ansible"
 }

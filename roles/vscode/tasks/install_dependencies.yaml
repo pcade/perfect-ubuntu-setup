@@ -1,0 +1,19 @@
+---
+- name: "Notify: install_dependencies role started"
+  ansible.builtin.debug:
+    msg: "Notify: install_dependencies role started"
+
+- name: Installation of dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop: "{{ vscode_dependencies }}"
+  register: install_dependencies_result
+  ignore_errors: true
+
+- name: "Notify: install_dependencies role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: install_dependencies role finished
+      {% if not install_dependencies_result %} with failure{% endif %}

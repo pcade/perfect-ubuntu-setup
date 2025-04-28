@@ -36,7 +36,14 @@ vscode_extensions:
 vscode_repo_key: https://packages.microsoft.com/keys/microsoft.asc
 vscode_repo_url: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 
-package_name: code
+# Package for VSCode
+vscode_package_name: code
+
+# dependencies for VSCode
+vscode_dependencies:
+  - wget
+  - gpg
+  - apt-transport-https
 
 # Configure VSCode
 vscode_user_settings:

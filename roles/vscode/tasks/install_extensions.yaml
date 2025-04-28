@@ -1,0 +1,17 @@
+---
+- name: "Notify: install_extensions role started"
+  ansible.builtin.debug:
+    msg: "Notify: install_extensions role started"
+
+- name: Install extensions VSCode
+  community.general.vscode_extension:
+    name: "{{ item }}"
+  loop: "{{ vscode_extensions }}"
+  register: vscode_extension_result
+  ignore_errors: true
+
+- name: "Notify: install_extensions finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: install_extensions finished
+      {% if not vscode_extension_result %} with failure{% endif %}
