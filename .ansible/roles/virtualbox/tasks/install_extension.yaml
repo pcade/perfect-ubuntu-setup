@@ -1,0 +1,17 @@
+---
+- name: Download Extension Pack
+  ansible.builtin.get_url:
+    url: "{{ virtualbox_extension.url }}"
+    dest: "{{ virtualbox_extension.path }}"
+    mode: "0644"
+
+- name: Install Extension Pack
+  community.general.virtualbox_extension_pack:
+    name: "{{ virtualbox_extension.name }}"
+    path: "{{ virtualbox_extension.path }}"
+    state: present
+    virtualbox_path: /usr/bin/virtualbox
+
+- name: "Notify: extension Pack installed"
+  ansible.builtin.debug:
+    msg: "Notify: extension Pack installed."

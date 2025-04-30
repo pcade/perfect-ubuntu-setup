@@ -1,0 +1,48 @@
+---
+- name: "Notify: virtualbox role started"
+  ansible.builtin.debug:
+    msg: "Notify: virtualbox role started"
+
+- name: "Include dependencies installation tasks"
+  ansible.builtin.include_tasks: install_dependencies.yml
+  register: install_dependencies_result
+  ignore_errors: true
+
+- name: "Add repository tasks"
+  ansible.builtin.include_tasks: add_repository.yml
+  register: add_repository_result
+  when: install_dependencies_result is not failed
+  ignore_errors: true
+
+- name: "Install packages tasks"
+  ansible.builtin.include_tasks: install_packages.yml
+  register: install_packages_result
+  when: add_repository_result is not failed
+  ignore_errors: true
+
+- name: "Configure virtualbox tasks"
+  ansible.builtin.include_tasks: configure_virtualbox.yml
+  register: configure_virtualbox_result
+  when: install_package_result is not failed
+  ignore_errors: true
+
+- name: "Install extensions tasks"
+  ansible.builtin.include_tasks: install_extension.yml
+  register: install_extension_result
+  when: install_package_result is not failed
+  ignore_errors: true
+
+- name: "Set task status"
+  ansible.builtin.set_fact:
+    virtualbox_tasks_status: >-
+      {{ install_dependencies_result is not failed and
+         add_repository_result is not failed and
+         install_packages_result is not failed and
+         configure_virtualbox_result is not failed and
+         install_extension_result is not failed }}
+
+- name: "Notify: virtualbox role finished"
+  ansible.builtin.debug:
+    msg: >-
+      Notify: virtualbox role finished
+      {% if not virtualbox_tasks_status %} with failure{% endif %}

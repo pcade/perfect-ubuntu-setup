@@ -1,0 +1,23 @@
+---
+- name: Append VirtualBox repository key
+  ansible.builtin.apt_key:
+    url: "{{ virtualbox_repo.key_url }}"
+    state: present
+
+- name: "Notify: key appended"
+  ansible.builtin.debug:
+    msg: "Notify: key appended."
+
+- name: Append repository VirtualBox
+  ansible.builtin.apt_repository:
+    repo: "{{ virtualbox_repo.url }} {{ virtualbox_repo.dist }} {{ virtualbox_repo.component }}"
+    state: present
+    filename: "{{ virtualbox_repo.filename }}"
+
+- name: "Notify: repository appended"
+  ansible.builtin.debug:
+    msg: "Notify: repository appended."
+
+- name: apt update
+  ansible.builtin.apt:
+    update_cache: yes

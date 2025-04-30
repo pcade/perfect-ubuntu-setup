@@ -1,0 +1,5 @@
+---
+- name: Restart vboxdrv
+  ansible.builtin.service:
+    name: vboxdrv
+    state: restarted

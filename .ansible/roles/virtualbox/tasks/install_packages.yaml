@@ -1,9 +1,9 @@
 ---
 - name: Install VirtualBox
-  apt:
+  ansible.builtin.apt:
     name: "{{ virtualbox_packages }}"
     state: present
 
 - name: "Notify: VirtualBox installed"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: VirtualBox installed."

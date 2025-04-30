@@ -1,0 +1,13 @@
+---
+- name: Apt update
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install system dependencies
+  ansible.builtin.apt:
+    name: "{{ virtualbox_system_dependencies }}"
+    state: present
+
+- name: "Notify: system dependencies installed"
+  ansible.builtin.debug:
+    msg: "Notify: system dependencies installed."
