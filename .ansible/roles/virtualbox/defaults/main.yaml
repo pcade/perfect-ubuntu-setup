@@ -21,5 +21,7 @@ virtualbox_key_url: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
 
 # Extension Pack
 virtualbox_extension_pack_version: "7.0.0"
-virtualbox_extension_pack_url: "https://download.virtualbox.org/virtualbox/{{ extension_pack_version }}/Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack_version }}.vbox-extpack"
+virtualbox_extension_pack_url: >
+  https://download.virtualbox.org/virtualbox/{{ extension_pack_version }}/
+  Oracle_VM_VirtualBox_Extension_Pack-{{ extension_pack_version }}.vbox-extpack
 virtualbox_extension_pack_path: "/tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack"
