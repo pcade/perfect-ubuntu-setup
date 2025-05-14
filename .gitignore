@@ -1,0 +1,13 @@
+# IDE
+.vscode/
+.idea/
+
+# Ansible
+.ansible/
+*.retry
+*.swp
+
+# Local
+__pycache__/
+*.tmp
+*.bak
