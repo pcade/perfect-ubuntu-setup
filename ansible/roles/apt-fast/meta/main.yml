@@ -12,12 +12,12 @@ galaxy_info:
   galaxy_tags:
     - ubuntu
     - jammy
-    - post-installation
+    - postinstallation
     - setup
     - environment
     - configuration
     - package
     - apt
-    - apt-fast
+    - aptfast
 
 dependencies: []

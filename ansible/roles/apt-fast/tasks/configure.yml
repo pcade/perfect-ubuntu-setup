@@ -1,34 +1,32 @@
 ---
 - name: "Notify: configure role started"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: configure role started"
 
-- name: Ensure config directory exists
+- name: "Ensure config directory exists"
   ansible.builtin.file:
     path: /etc/apt-fast
     state: directory
     mode: '0755'
-  become: true
   tags: apt-fast-config
   register: directory_result
   ignore_errors: true
 
-- name: Configure apt-fast
+- name: "Configure apt-fast"
   ansible.builtin.template:
     src: apt-fast.conf.j2
     dest: /etc/apt-fast.conf
     mode: '0644'
-  become: true
   tags: apt-fast-config
   register: configure_result
   ignore_errors: true
 
 - name: "Notify: configure role finished"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: configure role finished"
   when: directory_result is not failed and configure_result is not failed
 
 - name: "Notify: configure role finished with failure"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: configure role finished with failure"
   when: directory_result is failed or configure_result is failed
