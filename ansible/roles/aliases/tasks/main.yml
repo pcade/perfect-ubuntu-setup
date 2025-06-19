@@ -1,25 +1,24 @@
 ---
 - name: "Notify: alias role started"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: alias role started"
 
-- name: Настраиваем алиасы для всех пользователей
-  include_tasks: setup_aliases.yml
+- name: "Configure for all users"
+  ansible.builtin.include_tasks: setup_aliases.yml
   register: setup_aliases_result
   ignore_errors: true
 
-- name: Настраиваем ZSH (если включено)
-  include_tasks: setup_zsh.yml
+- name: "Configure ZSH"
+  ansible.builtin.include_tasks: setup_zsh.yml
   when: enable_zsh
   register: setup_zsh_result
-  ignore_errors: true
 
 - name: "Notify: alias role finished"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: alias role finished"
   when: setup_aliases_result is not failed and setup_zsh_result is not failed
 
 - name: "Notify: alias role finished with failure"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: alias role finished with failure"
   when: setup_aliases_result is failed or setup_zsh_result is failed

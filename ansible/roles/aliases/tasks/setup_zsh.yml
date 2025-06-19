@@ -1,30 +1,31 @@
 ---
 - name: "Notify: setup_zsh role started"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: setup_zsh role started"
 
-- name: Configure ZSH
+- name: "Configure ZSH"
+  when: enable_zsh
   block:
     - name: Append alias in to .zshrc
-      template:
+      ansible.builtin.template:
         src: zsh_aliases.j2
         dest: "{{ ansible_user_dir }}/{{ item }}"
         mode: '0644'
       loop: "{{ zsh_config_files }}"
 
-    - name: Enable ZSH
-      user:
+    - name: "Enable ZSH"
+      ansible.builtin.user:
         name: "{{ ansible_user_id }}"
         shell: /bin/zsh
-  when: enable_zsh
-  register: setup_zsh_result
+      register: setup_zsh_result
+
 
 - name: "Notify: setup_zsh role finished"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: setup_zsh role finished"
   when: setup_zsh_result is not failed
 
 - name: "Notify: setup_zsh role finished with failure"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: setup_zsh role finished with failure"
   when: setup_zsh_result is failed
