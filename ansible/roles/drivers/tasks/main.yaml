@@ -1,34 +1,36 @@
 ---
 - name: "Notify: drivers role started"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: drivers role started"
 
 - name: Update apt cache
-  apt:
-    update_cache: yes
+  ansible.builtin.apt:
+    update_cache: true
   become: true
 
 - name: "Notify: apt cache updated"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: apt cache updated."
 
 - name: Upgrade packages
-  apt:
+  ansible.builtin.apt:
     upgrade: dist
   become: true
 
 - name: "Notify: apt cache upgraded"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: apt cache upgraded"
 
 - name: Ubuntu drivers autoinstall
-  command: ubuntu-drivers autoinstall
+  ansible.builtin.command:
+    cmd: ubuntu-drivers autoinstall
+    creates: /var/log/ubuntu-drivers-installed.log
   become: true
 
 - name: "Notify: drivers installed"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: drivers installed."
 
 - name: "Notify: drivers role finished"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: drivers role finished"
