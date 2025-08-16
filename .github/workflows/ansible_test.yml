@@ -1,5 +1,4 @@
 name: Ansible Playbook Test
-
 on:
   push:
     branches: [ "main" ]
