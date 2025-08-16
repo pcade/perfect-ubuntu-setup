@@ -1,6 +1,6 @@
 ---
 - name: "Notify: apt-fast role started"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: apt-fast role started"
 
 - name: Include repository setup
@@ -18,15 +18,15 @@
   when: installation_result is not failed
 
 - name: Set task status
-  set_fact:
+  ansible.builtin.set_fact:
     apt_fast_tasks_status: "{{ include_repository_result is not failed and installation_result is not failed and configuration_result is not failed }}"
 
 - name: "Notify: apt-fast role finished"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: apt-fast role finished"
   when: apt_fast_tasks_status
 
 - name: "Notify: apt-fast role finished with failure"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: apt-fast role finished with failure"
   when: not apt_fast_tasks_status
