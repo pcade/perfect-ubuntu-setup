@@ -3,7 +3,7 @@
   ansible.builtin.debug:
     msg: "Notify: setup_zsh role started"
 
-- name: "Configure ZSH"
+- name: "Configure ZSH block"
   when: enable_zsh
   block:
     - name: Append alias in to .zshrc
