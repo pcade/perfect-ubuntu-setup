@@ -32,4 +32,4 @@
   ansible.builtin.debug:
     msg: >-
       Notify: configure_shortcut role finished
-      {% if not create_icon_result and if not create_icon_result %} with failure{% endif %}
+      {% if not create_icon_result %} with failure{% endif %}
