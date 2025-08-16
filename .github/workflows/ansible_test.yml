@@ -22,6 +22,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y ansible
+          sudo apt install -y ansible-lint
 
       - name: Lint Ansible Playbook
         run: |
