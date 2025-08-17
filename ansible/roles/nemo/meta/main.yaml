@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Pahomov Grigorii
-  description: Role to install kate for Ubuntu environment.
+  description: Role to install nemo for Ubuntu environment.
   company: Personal Project
   license: MIT
   min_ansible_version: "2.10.8"
@@ -12,11 +12,11 @@ galaxy_info:
   galaxy_tags:
     - ubuntu
     - jammy
-    - post-installation
+    - postinstallation
     - setup
     - environment
     - configuration
     - package
-    - kate
+    - nemo
 
 dependencies: []

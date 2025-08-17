@@ -1,0 +1,64 @@
+---
+- name: "Notify: nemo role started"
+  ansible.builtin.debug:
+    msg: "Notify: nemo role started"
+
+- name: Install Nemo
+  ansible.builtin.apt:
+    name: nemo
+    state: present
+    install_recommends: false
+
+- name: "Notify: nemo installed"
+  ansible.builtin.debug:
+    msg: "Notify: nemo installed."
+
+- name: Remove nautilus
+  block:
+    - name: Remove Nautilus
+      become: true
+      ansible.builtin.apt:
+        name: nautilus
+        state: absent
+        purge: true
+
+    - name: Autoremove unused packages
+      become: true
+      ansible.builtin.apt:
+        autoremove: true
+
+- name: "Notify: Nautilus removed"
+  ansible.builtin.debug:
+    msg: "Notify: Nautilus removed."
+
+- name: Configure Nemo as default file manager with desktop icons
+  become: true
+  block:
+    - name: Install xdg-utils
+      ansible.builtin.apt:
+        name: xdg-utils
+        state: present
+        install_recommends: false
+
+    - name: Set Nemo as default file manager
+      ansible.builtin.command: xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+      register: set_nemo
+      changed_when: false
+
+    - name: Disable GNOME desktop icons
+      ansible.builtin.command: gsettings set org.gnome.desktop.background show-desktop-icons false
+      register: disable_gnome_icons
+      changed_when: false
+
+    - name: Enable Nemo desktop icons
+      ansible.builtin.command: gsettings set org.nemo.desktop show-desktop-icons true
+      register: enable_nemo_icons
+      changed_when: false
+
+- name: "Notify: nemo Configured"
+  ansible.builtin.debug:
+    msg: "Notify: nemo Configured"
+
+- name: "Notify: nemo role finished"
+  ansible.builtin.debug:
+    msg: "Notify: nemo role finished"
