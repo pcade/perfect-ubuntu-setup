@@ -1,5 +1,5 @@
 ---
 telegram_download_url: "https://telegram.org/dl/desktop/linux"
-dependencies:
+telegram_dependencies:
   - wget
   - gdebi-core

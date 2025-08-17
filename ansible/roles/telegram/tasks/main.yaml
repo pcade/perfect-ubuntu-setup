@@ -1,57 +1,58 @@
 ---
 - name: "Notify: telegram role started"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: telegram role started"
 
 - name: Install dependencies
-  apt:
+  ansible.builtin.apt:
     name: "{{ item }}"
     state: present
-  loop: "{{ dependencies }}"
+  loop: "{{ telegram_dependencies }}"
   become: true
 
 - name: "Notify: dependencies installed"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: dependencies installed."
 
 - name: Download Telegram
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ telegram_download_url }}"
     dest: "/tmp/telegram.tar.xz"
+    mode: '0664'
   become: true
 
 - name: "Notify: telegram downloaded"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: telegram downloaded."
 
 - name: Unpack Telegram
-  unarchive:
+  ansible.builtin.unarchive:
     src: /tmp/telegram.tar.xz
     dest: /opt/
-    remote_src: yes
+    remote_src: true
   become: true
 
 - name: "Notify: telegram unpacked"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: telegram unpacked."
 
 - name: Remove Telegram archive
-  file:
+  ansible.builtin.file:
     path: /tmp/telegram.tar.xz
     state: absent
   become: true
 
 - name: "Notify: telegram archive removed"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: telegram archive removed."
 
 - name: Configure Telegram
-  file:
+  ansible.builtin.file:
     src: /opt/Telegram/Telegram
     dest: /usr/bin/telegram
     state: link
   become: true
 
 - name: "Notify: telegram Configured"
-  debug:
+  ansible.builtin.debug:
     msg: "Notify: telegram Configured"
