@@ -1,0 +1,28 @@
+---
+- name: "Notify: kate role started"
+  ansible.builtin.debug:
+    msg: "Notify: kate role started"
+
+- name: Install kate
+  ansible.builtin.apt:
+    name: kate
+    state: present
+    install_recommends: false
+
+- name: "Notify: kate installed"
+  ansible.builtin.debug:
+    msg: "Notify: kate installed."
+
+- name: Check current default text editor
+  ansible.builtin.command: xdg-mime query default text/plain
+  register: current_text_editor
+  changed_when: false
+  become: true
+
+- name: "Notify: kate Configured"
+  ansible.builtin.debug:
+    msg: "Notify: kate Configured"
+
+- name: "Notify: kate role finished"
+  ansible.builtin.debug:
+    msg: "Notify: kate role finished"

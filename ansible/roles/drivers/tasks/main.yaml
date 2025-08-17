@@ -22,9 +22,9 @@
     msg: "Notify: apt cache upgraded"
 
 - name: Ubuntu drivers autoinstall
-  ansible.builtin.command:
-    cmd: ubuntu-drivers autoinstall
-    creates: /var/log/ubuntu-drivers-installed.log
+  ansible.builtin.command: ubuntu-drivers autoinstall
+  register: ubuntu_drivers
+  changed_when: false
   become: true
 
 - name: "Notify: drivers installed"
