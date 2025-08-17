@@ -1,9 +1,9 @@
 # Alias Bash
-{% for alias, command in shell_aliases.items() %}
+{% for alias, command in aliases_shell.items() %}
 alias {{ alias }}='{{ command }}'
 {% endfor %}
 
 # Environment Variables
-{% for var, value in shell_env_vars.items() %}
+{% for var, value in aliases_vars.items() %}
 export {{ var }}={{ value }}
 {% endfor %}

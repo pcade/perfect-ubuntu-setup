@@ -1,6 +1,6 @@
 ---
 # Общие алиасы для всех пользователей
-shell_aliases:
+aliases_shell:
   ll: 'ls -la'
   c: 'clear'
   apt: 'sudo apt-fast'
@@ -24,10 +24,10 @@ shell_aliases:
   fastping: 'ping -c 100 -s 0.2'
 
 # Переменные окружения
-shell_env_vars:
+aliases_vars:
   HISTTIMEFORMAT: "'%F %T '"
 
 # Настройки для ZSH
-enable_zsh: true
-zsh_config_files:
+aliases_enable_zsh: true
+aliases_zsh_config_files:
   - .zshrc
